@@ -2,14 +2,15 @@
 
 const ajv = require('./ajv-instance')
 
-// const userData = {
-//   type: ['object', 'null'],
-//   properties: {
-//     cms_user_id: { type: ['string', 'null'] },
-//     email: { type: ['string', 'null'] },
-//     id: { type: ['integer', 'null'] }
-//   },
-//   maxProperties: 3
-// }
+const inputData = ajv.compile({
+  type: 'object',
+  properties: {
+    freePositions: { type: ['string'] },
+    dueDate: { type: ['string'] },
+    amount: { type: ['string'] }
+  },
+  required: ['freePositions', 'dueDate', 'amount'],
+  additionalProperties: false
+})
 
-module.exports = { }
+module.exports = { inputData }

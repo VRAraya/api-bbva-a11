@@ -1,8 +1,13 @@
 'use strict'
 
-async function condensed_date(someday, base = 2014) {
-    const somedayDate = new Date(someday)
+const boom = require('@hapi/boom')
 
+async function condensed_date(someday, base = 2014) {
+    const valid = Date.parse(someday)
+    if(Number.isNaN(valid)) {
+      throw boom.badRequest('dueDate should be a valid timestamp')
+    }
+    const somedayDate = new Date(someday)
     const year = somedayDate.getFullYear()
     const differenceFromBase = year - base
     const differenceFromBaseMultiplyBy = differenceFromBase * 372

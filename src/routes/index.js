@@ -7,8 +7,8 @@ const ApiService = require('../services/apiService')
 const validatorHandler = require('../middlewares/validator-handler')
 const schemas = require('../schemas/apiService')
 
-router.get(
-  '/get/',
+router.post(
+  '/get/reference',
   validatorHandler(schemas.inputData, 'body'),
   async function (req, res, next) {
     try {

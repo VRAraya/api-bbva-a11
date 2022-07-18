@@ -13,9 +13,13 @@ class UserService {
     return this._userServiceInstance
   }
 
-  async create (data) {
-    const newUser = await User.create(data)
-    delete newUser.dataValues.password
+  async findOrCreate (data) {
+    const { email } = data
+    const newUser = await User.findOrCreate({
+      defaults: data,
+      where: { email }
+    })
+    delete newUser[0].dataValues.password
     return newUser
   }
 

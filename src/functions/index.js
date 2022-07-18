@@ -1,6 +1,7 @@
 'use strict'
 
 const boom = require('@hapi/boom')
+const debug = require('debug')('api-bbva-a11:functions')
 
 async function condensed_date(someday, base = 2014) {
     const valid = Date.parse(someday)
@@ -22,6 +23,7 @@ async function condensed_date(someday, base = 2014) {
 }
 
 async function import_check_digit(amount) {
+    
     amount=amount.replace(/\.|\$|\,/g,'')
 
     const array = [7,3,1]
@@ -69,6 +71,7 @@ async function reference_check_digits(someday, amount, reference,  base = 2014, 
         'Y':8,
         'Z':9
     }
+    debug(someday)
     const condensedDate = await condensed_date(someday, base)
     const importCheckDigit = await import_check_digit(amount)
     const content = reference.toString() + condensedDate.toString() + importCheckDigit.toString() + freeDigit.toString()

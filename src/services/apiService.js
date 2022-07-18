@@ -15,6 +15,7 @@ class ApiService {
     }
 
     async applyElevenAlgorithm(dueDate, amount, freePositions, base = 2014, freeDigit = 2) {
+      debug(dueDate, amount, freePositions)
       const referenceCheckDigits = await reference_check_digits(dueDate, amount, freePositions)
       return referenceCheckDigits
     }

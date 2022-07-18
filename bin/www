@@ -6,7 +6,7 @@
 
 var app = require('../app');
 var debug = require('debug')('api-bbva-a11:server');
-var config = require('../src/config/index')
+var config = require('../src/config')
 var http = require('http');
 
 /**

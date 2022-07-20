@@ -23,7 +23,6 @@ async function condensed_date(someday, base = 2014) {
 }
 
 async function import_check_digit(amount) {
-    
     amount=amount.replace(/\.|\$|\,/g,'')
 
     const array = [7,3,1]

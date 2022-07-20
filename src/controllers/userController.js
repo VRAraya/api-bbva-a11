@@ -2,33 +2,33 @@ const userService = require('../services/userService').build()
 const crypto = require("crypto")
 const bcrypt = require("bcrypt")
 
-async function createUsers(params = {}) {
-    const userEmail = [
-    ]
+// async function createUsers(params = {}) {
+//     const userEmail = [
+//     ]
 
-    const subUserList = [
+//     const subUserList = [
 
-]
+// ]
 
-    const cmsUserService = await CmsUserService.build()
-    let result = []
-    for (const email of subUserList) {
-        const userFound = await cmsUserService.getUserByEmail(email)
-        let pass = crypto.randomBytes(10).toString('hex')
-        if (userFound) {
-            result.push({ email, pass })
-            await userService.create({
-                cms_user_id: userFound[0].id,
-                name: `${userFound[0].firstname} ${userFound[0].lastname}`,
-                password: pass,
-                email: email
-            })
-        }else{
-            result.push({ email, pass: 'Usuario no encontrado' })
-        }
-    }
-    return result
-}
+//     const cmsUserService = await CmsUserService.build()
+//     let result = []
+//     for (const email of subUserList) {
+//         const userFound = await cmsUserService.getUserByEmail(email)
+//         let pass = crypto.randomBytes(10).toString('hex')
+//         if (userFound) {
+//             result.push({ email, pass })
+//             await userService.create({
+//                 cms_user_id: userFound[0].id,
+//                 name: `${userFound[0].firstname} ${userFound[0].lastname}`,
+//                 password: pass,
+//                 email: email
+//             })
+//         }else{
+//             result.push({ email, pass: 'Usuario no encontrado' })
+//         }
+//     }
+//     return result
+// }
 
 
 async function findOrCreate(data) {
@@ -61,7 +61,7 @@ async function deleteUserById(id) {
 }
 
 module.exports = {
-    createUsers,
+    // createUsers,
     findOrCreate,
     getAllUsers,
     getUserById,

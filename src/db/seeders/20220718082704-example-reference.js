@@ -18,6 +18,8 @@ module.exports = {
         free_positions: '424PBALEON06',
         due_date: '2020-01-10',
         amount: 5644.00,
+        base: 2014,
+        free_digit: 2,
         created_at: new Date(),
       }
     ], {})

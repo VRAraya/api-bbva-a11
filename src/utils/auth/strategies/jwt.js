@@ -1,11 +1,8 @@
 'use strict'
 
 const { Strategy, ExtractJwt } = require('passport-jwt')
-const UserService = require('../../../services/userService')
+const authService = require('../../../services/authService').build()
 const config = require('../../../config')
-const boom = require('@hapi/boom')
-
-const userService = UserService.build()
 
 const options = {
   jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
@@ -14,10 +11,7 @@ const options = {
 
 const JwtStrategy = new Strategy(options, async (payload, done) => {
   try {
-    const user = await userService.findOne(payload.userData.id)
-    if (!user) {
-      done(boom.unauthorized(), false)
-    }
+    const user = await authService.getUserById(payload.userData.id)
     return done(null, user)
   } catch (err) {
     done(err, false)

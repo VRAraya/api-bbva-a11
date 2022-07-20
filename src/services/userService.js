@@ -39,7 +39,7 @@ class UserService {
     const cond = {
       where: { email }
     }
-    const user = unscoped ? User.unscoped().findOne(cond) : User.find(cond)
+    const user = await (unscoped ? User.unscoped().findOne(cond) : User.find(cond))
     if (!user) {
       throw boom.notFound('user not found')
     }

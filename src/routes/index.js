@@ -12,11 +12,13 @@ router.post(
   validatorHandler(schemas.inputData, 'body'),
   async function (req, res, next) {
     try {
-      const { dueDate, amount, freePositions } = req.body
+      const { dueDate, amount, freePositions, freeDigit, userId } = req.body
       debug('dueDate: ', dueDate)
       debug('amount: ', amount)
       debug('freePositions: ', freePositions)
-      const paymentReference = await apiController.getPaymentReference(dueDate, amount, freePositions)
+      debug('freeDigit: ', freeDigit)
+      debug('userId: ', userId)
+      const paymentReference = await apiController.getPaymentReference(dueDate, amount, freePositions, freeDigit, userId)
       debug('paymentReference: ', paymentReference)
       res.status(200).json({paymentReference})
     } catch (error) {

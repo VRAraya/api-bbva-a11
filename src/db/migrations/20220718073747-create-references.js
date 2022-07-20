@@ -30,6 +30,14 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DOUBLE(10,2)
       },
+      base: {
+        allowNull: false,
+        type: Sequelize.INTEGER
+      },
+      free_digit: {
+        allowNull: false,
+        type: Sequelize.INTEGER
+      },
       created_at: {
         allowNull: false,
         type: Sequelize.DATE

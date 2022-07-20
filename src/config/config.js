@@ -6,9 +6,16 @@ module.exports = {
     host: process.env.DEV_DB_HOST,
     dialect: process.env.DEV_DB_DIALECT,
     serverPort: process.env.DEV_SERVER_PORT,
+    frontendUrl: process.env.DEV_FRONTEND_URL,
+    smtpHost: process.env.DEV_SMTP_HOST,
+    smtpPort: process.env.DEV_SMTP_PORT,
+    smtpMail: process.env.DEV_SMTP_MAIL,
+    smtpUser: process.env.DEV_SMTP_USER,
+    smtpPass: process.env.DEV_SMTP_PASS,
     jwtSecret: process.env.JWT_SECRET,
     countryCode: process.env.COUNTRY_CODE,
-    apiKey: process.env.API_KEY
+    apiKey: process.env.API_KEY,
+    baseForElevenAlgorithm: process.env.BASE_ELEVEN_ALGORITHM
   },
   test: {
     username: process.env.TEST_DB_USER,
@@ -17,9 +24,16 @@ module.exports = {
     host: process.env.TEST_DB_HOST,
     dialect: process.env.TEST_DB_DIALECT,
     serverPort: process.env.TEST_SERVER_PORT,
+    frontendUrl: process.env.TEST_FRONTEND_URL,
+    smtpHost: process.env.TEST_SMTP_HOST,
+    smtpPort: process.env.TEST_SMTP_PORT,
+    smtpMail: process.env.TEST_SMTP_MAIL,
+    smtpUser: process.env.TEST_SMTP_USER,
+    smtpPass: process.env.TEST_SMTP_PASS,
     jwtSecret: process.env.JWT_SECRET,
     countryCode: process.env.COUNTRY_CODE,
-    apiKey: process.env.API_KEY
+    apiKey: process.env.API_KEY,
+    baseForElevenAlgorithm: process.env.BASE_ELEVEN_ALGORITHM
   },
   production: {
     username: process.env.PROD_DB_USER,
@@ -28,8 +42,15 @@ module.exports = {
     host: process.env.PROD_DB_HOST,
     dialect: process.env.PROD_DB_DIALECT,
     serverPort: process.env.PROD_SERVER_PORT,
+    frontendUrl: process.env.PROD_FRONTEND_URL,
+    smtpHost: process.env.PROD_SMTP_HOST,
+    smtpPort: process.env.PROD_SMTP_PORT,
+    smtpMail: process.env.PROD_SMTP_MAIL,
+    smtpUser: process.env.PROD_SMTP_USER,
+    smtpPass: process.env.PROD_SMTP_PASS,
     jwtSecret: process.env.JWT_SECRET,
     countryCode: process.env.COUNTRY_CODE,
-    apiKey: process.env.API_KEY
+    apiKey: process.env.API_KEY,
+    baseForElevenAlgorithm: process.env.BASE_ELEVEN_ALGORITHM
   }
 }

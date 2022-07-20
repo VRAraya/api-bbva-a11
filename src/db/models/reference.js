@@ -36,6 +36,14 @@ module.exports = (sequelize, DataTypes) => {
     due_date: {
       allowNull: false,
       type: DataTypes.DATE
+    },    
+    base: {
+      allowNull: false,
+      type: DataTypes.INTEGER
+    },
+    free_digit: {
+      allowNull: false,
+      type: DataTypes.INTEGER
     },
   }, {
     sequelize,
@@ -46,8 +54,8 @@ module.exports = (sequelize, DataTypes) => {
     hooks: {
       beforeCreate: async (reference, options) => {
         if(!reference.reference) {
-          const {due_date, amount, free_positions} = reference
-          const paymentReference = await apiService.applyElevenAlgorithm(due_date, amount, free_positions)
+          const {due_date, amount, free_positions, base, free_digit} = reference
+          const paymentReference = await apiService.applyElevenAlgorithm(due_date, amount, free_positions, base, free_digit)
           reference.reference = paymentReference
         }
       }
